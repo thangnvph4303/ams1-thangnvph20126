@@ -1,0 +1,26 @@
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Giá</th>
+            <th>#</th>
+        </tr>
+    </thead>
+
+    <tbody *ngIf="products && products.length">
+        <tr *ngFor="let product of products; index as i">
+            <td>{{ i + 1 }}</td>
+                <td>{{ product.name }}</td>
+                <td>{{ product.price }}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="removeItem(product.id)">
+                        Xóa
+                    </button>
+                    <a routerLink="/admin/product/{{ product.id }}/edit"
+                        >Cập nhật</a
+                    >
+                </td>
+        </tr>
+    </tbody>
+</table>
